@@ -12,7 +12,13 @@ const server = createServer(app)
 
 connectDB()
 
-app.use(cors())
+app.use(
+  cors({
+    origin: 'https://car-spotting-culture.vercel.app',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type'],
+  })
+)
 app.use(express.json())
 
 app.use('/api', chatRoutes)
